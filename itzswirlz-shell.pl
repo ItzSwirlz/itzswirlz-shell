@@ -57,7 +57,11 @@ sub main {
   } elsif($cmd eq "cd") {
     chdir($ENV{OLDPWD});
     main();
-  } elsif($cmd eq "exit" || "quit") {
+  } elsif($cmd eq "exit") {
+    system("$cmd");
+    print "Exiting ItzSwirlz Shell.\n";
+    exit 1;
+  } elsif($cmd eq "quit") {
     system("$cmd");
     print "Exiting ItzSwirlz Shell.\n";
     exit 1;
