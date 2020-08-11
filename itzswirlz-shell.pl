@@ -28,18 +28,18 @@ sub start {
 sub startStatistics {
   print "OS Statistics:\n";
   system("neofetch | lolcat");
-}
 
-sub getDateTime {
-  # TODO: Print date/time.
-  # This will be shown before main loop begins.
-  $date = "YYYY-MM-DD HH:MM:SS ZZZZ"
+  # Minus well also do this, as its a
+  # statistic and we don't want this to loop over and over
+  print "Today is ";
+  system("date");
 }
 
 sub main {
   # The infinite loop that does everything.
   $USER = $ENV{USER};
   $CURRENTDIR = getcwd;
+
   print "[$USER] $CURRENTDIR: ";
   $cmd = <STDIN>;
   chop($cmd);
