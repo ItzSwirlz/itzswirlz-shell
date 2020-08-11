@@ -38,7 +38,11 @@ sub main {
   # The infinite loop that does everything.
   $cmd = <STDIN>;
   chop($cmd);
-  system("$cmd | lolcat");
+  if($cmd eq "") {
+    main();
+  } else {
+    system("$cmd | lolcat");
+  }
   main();
 }
 
