@@ -51,9 +51,9 @@ sub main {
     if(-d $cmd) {
       chdir($cmd);
     } elsif(-e $cmd) {
-      print "[ItzSwirlz Shell]: $cmd exists but is not a directory.";
+      print "[ItzSwirlz Shell]: $cmd exists but is not a directory.\n";
     } else {
-      print "[ItzSwirlz Shell]: $cmd is not a directory.";
+      print "[ItzSwirlz Shell]: $cmd is not a directory.\n";
     }
     main();
   }
