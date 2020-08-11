@@ -18,6 +18,8 @@
 # and will actually execute them.
 # ---------------------------------------------------------------
 
+use Cwd;
+
 sub start {
   print "ItzSwirlz Shell v0.1~devel (c) GPL v3 Joshua Peisach 2020\n";
   print "Welcome to the ItzSwirlz Shell!\n";
@@ -36,6 +38,9 @@ sub getDateTime {
 
 sub main {
   # The infinite loop that does everything.
+  $USER = $ENV{USER};
+  $CURRENTDIR = getcwd;
+  print "[$USER] $CURRENTDIR: ";
   $cmd = <STDIN>;
   chop($cmd);
   if($cmd eq "") {
