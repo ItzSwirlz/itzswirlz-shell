@@ -43,7 +43,19 @@ sub main {
   print "[$USER] $CURRENTDIR: ";
   $cmd = <STDIN>;
   chop($cmd);
+
+  $cdcmd = "cd ";
+
+  if (index($cmd, $cdcmd) != -1) {
+    $cmd =~ s/^\S+\s*//;
+    chdir($cmd);
+    main();
+  }
+
   if($cmd eq "") {
+    main();
+  } elsif($cmd eq "cd") {
+    chdir($ENV{OLDPWD});
     main();
   } else {
     system("$cmd | lolcat");
