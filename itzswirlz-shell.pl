@@ -48,7 +48,13 @@ sub main {
 
   if (index($cmd, $cdcmd) != -1) {
     $cmd =~ s/^\S+\s*//;
-    chdir($cmd);
+    if(-d $cmd) {
+      chdir($cmd);
+    } elsif(-e $cmd) {
+      print "[ItzSwirlz Shell]: $cmd exists but is not a directory.";
+    } else {
+      print "[ItzSwirlz Shell]: $cmd is not a directory.";
+    }
     main();
   }
 
